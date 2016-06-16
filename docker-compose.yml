@@ -1,0 +1,13 @@
+http:
+  image: eboraas/apache-php
+  ports:
+    - "80:80"
+  volumes:
+    - ".:/var/www/html/"
+  links:
+    - db
+
+db:
+  image: mysql
+  environment:
+    - MYSQL_ROOT_PASSWORD=my-secret-pw
